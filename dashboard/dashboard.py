@@ -66,7 +66,7 @@ with col1:
     st.pyplot(fig)
 
 with col2:
-    st.image("https://raw.githubusercontent.com/FatwaAlFajar/submission-main/main/Picture/493394_650-Photoroom.png", caption="Cuaca dan Penyewaan", use_container_width=True)
+    st.image("https://raw.githubusercontent.com/FatwaAlFajar/submission-main/main/Picture/png-clipart-weather-forecasting-rain-meteorology-cloud-weather-cloud-weather-forecasting-Photoroom.png", caption="Cuaca dan Penyewaan", use_container_width=True)
 
 # **Jam dengan Penyewaan Tertinggi**
 max_hour = hour_df.loc[hour_df['cnt'].idxmax(), 'hr']
