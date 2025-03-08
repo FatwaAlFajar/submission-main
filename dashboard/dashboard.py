@@ -18,7 +18,7 @@ day_df['dteday'] = pd.to_datetime(day_df['dteday'])
 
 # Sidebar untuk filter rentang waktu
 with st.sidebar:
-    st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png", use_container_width=True)
+    st.image("https://github.com/FatwaAlFajar/submission-main/blob/main/Picture/Foto%20Fajar.jpg", use_container_width=True)
     min_date = day_df['dteday'].min()
     max_date = day_df['dteday'].max()
     start_date, end_date = st.date_input(
