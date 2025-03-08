@@ -45,7 +45,7 @@ col1, col2 = st.columns([2, 1])
 with col1:
     fig, ax = plt.subplots()
     sns.barplot(x='season', y='cnt', data=filtered_data, estimator='mean', palette='coolwarm', ax=ax)
-    ax.set_xticklabels(['Spring', 'Summer', 'Fall', 'Winter'])
+    ax.set_xticklabels(['Musim Semi', 'Musim Panas', 'Musim Gugur', 'Musim Dingin'])
     ax.set_xlabel("Musim")
     ax.set_ylabel("Rata-rata Penyewaan Sepeda")
     st.pyplot(fig)
