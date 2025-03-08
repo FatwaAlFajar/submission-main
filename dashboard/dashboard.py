@@ -18,7 +18,7 @@ day_df['dteday'] = pd.to_datetime(day_df['dteday'])
 
 # Sidebar untuk filter rentang waktu
 with st.sidebar:
-    st.image("https://github.com/FatwaAlFajar/submission-main/blob/main/Picture/Foto%20Fajar.jpg", use_container_width=True)
+    st.image("https://raw.githubusercontent.com/FatwaAlFajar/submission-main/main/Picture/Foto%20Fajar.png", use_container_width=True)
     min_date = day_df['dteday'].min()
     max_date = day_df['dteday'].max()
     start_date, end_date = st.date_input(
@@ -51,7 +51,7 @@ with col1:
     st.pyplot(fig)
 
 with col2:
-    st.image("https://github.com/FatwaAlFajar/submission-main/blob/main/Picture/493394_650-Photoroom.png", caption="Musim Penyewaan", use_container_width=True)
+    st.image("https://raw.githubusercontent.com/FatwaAlFajar/submission-main/main/Picture/493394_650-Photoroom.png", caption="Musim Penyewaan", use_container_width=True)
 
 # **Pengaruh Kondisi Cuaca terhadap Penyewaan Sepeda**
 st.subheader("Pengaruh Kondisi Cuaca terhadap Penyewaan Sepeda")
@@ -66,7 +66,7 @@ with col1:
     st.pyplot(fig)
 
 with col2:
-    st.image("https://source.unsplash.com/200x200/?weather", caption="Cuaca dan Penyewaan", use_container_width=True)
+    st.image("https://raw.githubusercontent.com/FatwaAlFajar/submission-main/main/Picture/493394_650-Photoroom.png", caption="Cuaca dan Penyewaan", use_container_width=True)
 
 # **Jam dengan Penyewaan Tertinggi**
 max_hour = hour_df.loc[hour_df['cnt'].idxmax(), 'hr']
