@@ -84,4 +84,4 @@ with col1:
     st.pyplot(fig)
 
 with col2:
-    st.image("https://source.unsplash.com/200x200/?clock", caption="Jam Penyewaan", use_container_width=True)
+    st.image("https://raw.githubusercontent.com/FatwaAlFajar/submission-main/main/Picture/pngtree-clock-vector-icon-png-image_3723571-Photoroom.png", caption="Jam Penyewaan", use_container_width=True)
