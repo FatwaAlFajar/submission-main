@@ -19,7 +19,7 @@ hour_df['dteday'] = pd.to_datetime(hour_df['dteday'])
 
 # Sidebar untuk filter rentang waktu
 with st.sidebar:
-    st.image("https://raw.githubusercontent.com/FatwaAlFajar/submission-main/main/Picture/Foto%20Fajar.png", use_container_width=True)
+    st.image("https://raw.githubusercontent.com/FatwaAlFajar/submission-main/main/Picture/rental%20sepeda.png", use_container_width=True)
     min_date = day_df['dteday'].min()
     max_date = day_df['dteday'].max()
     start_date, end_date = st.date_input(
