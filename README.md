@@ -3,7 +3,7 @@
 ## Setup Environment - Vscode
 ```
 install vscode
-Buat Folder baru (Namanya terserah
+Buat Folder baru (Namanya terserah)
 Buat File Baru dashboard.py
 klik New Terminal Dan Install Librari berikut
 
