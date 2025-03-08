@@ -51,7 +51,7 @@ with col1:
     st.pyplot(fig)
 
 with col2:
-    st.image("https://e7.pngegg.com/pngimages/57/994/png-clipart-bicycle-helmets-mountain-bike-bicycle-wheels-cycling-ride-bike-bicycle-frame-bicycle.png", caption="Musim Penyewaan", use_container_width=True)
+    st.image("https://github.com/FatwaAlFajar/submission-main/blob/main/Picture/493394_650-Photoroom.png", caption="Musim Penyewaan", use_container_width=True)
 
 # **Pengaruh Kondisi Cuaca terhadap Penyewaan Sepeda**
 st.subheader("Pengaruh Kondisi Cuaca terhadap Penyewaan Sepeda")
