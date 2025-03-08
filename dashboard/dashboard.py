@@ -8,8 +8,8 @@ import seaborn as sns
 sns.set(style='dark')
 
 # Memuat dataset
-day_df = pd.read_csv('https://raw.githubusercontent.com/DcCode46/dicoding/refs/heads/main/day.csv')
-hour_df = pd.read_csv('https://raw.githubusercontent.com/DcCode46/dicoding/refs/heads/main/hour.csv')
+day_df = pd.read_csv('https://raw.githubusercontent.com/FatwaAlFajar/submission-main/refs/heads/main/data/day.csv')
+hour_df = pd.read_csv('https://raw.githubusercontent.com/FatwaAlFajar/submission-main/refs/heads/main/data/hour.csv')
 
 # Sidebar untuk rentang waktu filter
 day_df['dteday'] = pd.to_datetime(day_df['dteday'])
