@@ -15,6 +15,7 @@ def load_data():
 
 day_df, hour_df = load_data()
 day_df['dteday'] = pd.to_datetime(day_df['dteday'])
+hour_df['dteday'] = pd.to_datetime(hour_df['dteday'])
 
 # Sidebar untuk filter rentang waktu
 with st.sidebar:
@@ -27,16 +28,44 @@ with st.sidebar:
 
 # 🎯 Filter data berdasarkan rentang waktu
 filtered_data = day_df[(day_df['dteday'] >= pd.Timestamp(start_date)) & (day_df['dteday'] <= pd.Timestamp(end_date))]
+filtered_hour = hour_df[(hour_df['dteday'] >= pd.Timestamp(start_date)) & (hour_df['dteday'] <= pd.Timestamp(end_date))]
 
 # Judul Dashboard
-st.title("📊 Dashboard Penyewaan Sepeda")
+st.title("📊 Dashboard Data Penyewaan Sepeda")
 
 # ✅ Menampilkan data yang sudah difilter
 st.write("### Data Harian (Setelah Difilter):")
 st.dataframe(filtered_data.head())
 
 st.write("### Data Per Jam:")
-st.dataframe(hour_df.head())
+st.dataframe(filtered_hour.head())
+
+# **Menampilkan Jam dan Tanggal dengan Penyewaan Terbanyak dan Tersedikit**
+data_terbanyak = filtered_hour.loc[filtered_hour['cnt'].idxmax()]
+jam_terbanyak = data_terbanyak['hr']
+tanggal_terbanyak = data_terbanyak['dteday'].strftime('%d %B %Y')
+jumlah_terbanyak = data_terbanyak['cnt']
+
+data_tersedikit = filtered_hour.loc[filtered_hour['cnt'].idxmin()]
+jam_tersedikit = data_tersedikit['hr']
+tanggal_tersedikit = data_tersedikit['dteday'].strftime('%d %B %Y')
+jumlah_tersedikit = data_tersedikit['cnt']
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.metric(
+        label="🚀 Penyewaan Terbanyak",
+        value=f"{jumlah_terbanyak} penyewaan",
+        delta=f"Jam ke-{jam_terbanyak} pada {tanggal_terbanyak} 🔼"
+    )
+
+with col2:
+    st.metric(
+        label="🐢 Penyewaan Tersedikit",
+        value=f"{jumlah_tersedikit} penyewaan",
+        delta=f"Jam ke-{jam_tersedikit} pada {tanggal_tersedikit} 🔽"
+    )
 
 # **Plot Rata-rata Penyewaan Sepeda Berdasarkan Musim**
 st.subheader("Rata-rata Penyewaan Sepeda Berdasarkan Musim")
@@ -68,17 +97,13 @@ with col1:
 with col2:
     st.image("https://raw.githubusercontent.com/FatwaAlFajar/submission-main/main/Picture/png-clipart-weather-forecasting-rain-meteorology-cloud-weather-cloud-weather-forecasting-Photoroom.png", caption="Cuaca dan Penyewaan", use_container_width=True)
 
-# **Jam dengan Penyewaan Tertinggi**
-max_hour = hour_df.loc[hour_df['cnt'].idxmax(), 'hr']
-st.write(f"### 🚴 Penyewaan sepeda paling banyak dilakukan pada jam ke-{max_hour}.")
-
 # **Visualisasi Penyewaan Sepeda Per Jam**
 st.subheader("Penyewaan Sepeda Per Jam")
 col1, col2 = st.columns([2, 1])
 
 with col1:
     fig, ax = plt.subplots()
-    sns.lineplot(x='hr', y='cnt', data=hour_df, marker='o', ax=ax)
+    sns.lineplot(x='hr', y='cnt', data=filtered_hour, marker='o', ax=ax)
     ax.set_xlabel("Jam")
     ax.set_ylabel("Jumlah Penyewaan")
     st.pyplot(fig)
